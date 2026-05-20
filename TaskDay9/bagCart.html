@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   body{
+    margin: 0px;
+   }
+   hr{
+    color: #802c6e;
+    
+   }
+   .nav-bar{
+    position: fixed;
+    display: flex ;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    z-index: 1000;
+    background-color: white;
+    text-align: center;
+    color: #802c6e;
+    font-weight: bold;
+    font-size: 1.8rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   }
+   .nav-bar div{
+    width: 50%;
+   }
+   .nav-bar ul{
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;;
+   }
+   .nav-bar ul a{
+    text-decoration: none;
+    color: #802c6e;
+    display: block;
+    padding: 10px 20px;
+   
+   }
+   .nav-bar li:hover{
+    background-color: #802c6e;
+   
+   }
+   .nav-bar li:hover a{
+    color: white;
+   }
+   .nav-bar h3{
+    margin-left: 15px;
+   
+   }
+   .bagcart{
+        position: relative;
+        top: 130px;
+        display: flex;
+        width: 95%;
+        height: 80%;
+        justify-content: space-between;
+        align-items: start;
+        /* margin-top: 30px; */
+        border-radius: 10px; 
+        box-shadow: 14px 14px 14px 14px  rgb(169, 165, 165);
+        background-color: white;
+        margin-left: 2.5%;
+       
+   }
+    .products{
+        display: flex;
+        flex-direction: column;
+        width: 65%;
+        height: 550px;
+        overflow-y: auto;
+        color: #802c6e;
+        margin: 0px;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #fefefe;
+        border-radius: 10px; 
+    }
+    .head-div{
+        display: flex;
+        justify-content: space-between;
+        width: 98%;
+    }
+    .item{
+        width: 98%;
+        height: 120px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .div-img{
+         width: 15%;
+        height: 90%;
+        margin: 0px 0px 5px 0px ;
+        background-color: white;
+    }
+    .div-cont{
+        width: 80%;
+        height: 20%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .item-img{
+        width: 99%;
+        height: 99%;
+        margin: 5px 0px 2px 0px;
+    }
+   
+    .item-title{
+         margin: 0px 5px 0px 5px;
+         font-size: 1.2rem;
+         font-weight: bold;
+         color: #802c6e;
+         text-align: center;
+         width: 40%;
+    }
+    .item-price{
+        margin: 0px 0px 0px 0px;
+        width: 35%;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #802c6e;
+        text-align: center;
+    }
+   
+    .btn-dele{
+         margin: 0px 0px 10px 0px;
+         
+         width: 10%;
+         border-radius: 30px;
+         background-color: white;
+         border: white;
+         color: #802c6e;
+    }
+    .div-cont button:hover{
+         color: #802c6e;
+         cursor: pointer;
+    }
+    .quntity{
+        width: 15%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .qunt{
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1.2px solid #802c6e;
+        text-align: center;
+    }
+    .quntity span:hover{
+      background-color: #802c6e;
+      color: white;
+      cursor: pointer;
+      
+    }
+    .summary{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 35%;
+        height: 550px;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #802c6e;
+        color: white;
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin: 0px;
+         border-top-right-radius: 10px; 
+         border-bottom-right-radius: 10px; 
+         
+    }
+    .summary h2{
+        width: 90%;
+        
+       text-align: left;
+    }
+    .numitems{
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+    }
+    .shipping{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+    }
+    .shipping input,select{
+        height: 40px;
+        font-size: 1.1rem;
+        padding-left: 10px;
+        align-content: center;
+        border-radius: 5px;
+    }
+    input::placeholder{
+        color: #802c6e;
+    }
+    select{
+       color: #802c6e;
+    }
+    .totalprice{
+         width: 90%;
+        display: flex;
+       justify-content: space-between;
+       
+    }
+    .btn-check{
+        width: 90%;
+        height: 40px;
+        color: #802c6e;
+        background-color: white;
+        border: white;
+        font-weight: bold;
+        border-radius: 5px;
+    }
+    .btn-check:active{
+        transform: scale(0.95);
+    }
+    .bagcart button:hover{
+        cursor: pointer;
+        background-color: #e193d1;
+        color: white;
+    }
+   
+    .popcontant{
+        /* z-index: 1001; */
+        position: fixed;
+        top: 0;
+        left: 50%;
+        background-color: white;
+        width: 400px;
+        color: #802c6e;
+        text-align: center;
+        box-shadow: 0px 5px 5px rgb(0,0,0,0.5);
+        border-radius: 6px;
+        transform: translate(-50%,-50%)scale(0.1);
+        padding: 0px 30px 30px;
+        visibility: hidden;
+        z-index: 1002;
+    }
+    .overlay{
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1001;
+        
+    }
+    .no-scroll{
+        overflow:hidden;
+    }
+    .popup-open{
+        visibility: visible;
+        top: 60%;
+        transform:translate(-50%,-50%) ;
+
+    }
+    .popcontant h2{
+        font-size: 38px;
+        font-weight: 500;
+        margin: 30px 5px 10px;
+    }
+    .popcontant button{
+        width: 90%;
+        padding:10px 0px;
+        border-radius: 5px;
+        margin-top: 50px;
+        background-color: #802c6e;
+        color: white;
+        outline: none;
+        border: 0;
+        box-shadow: 0px 5px 5px rgb(0,0,0,0.2);
+        font-size: 18px;
+       
+        /* transition:transform 0.2 ; */
+    }
+    #closebtn:active{
+      transform: scale(0.95);
+    }
+    @media screen and (max-width: 750px){
+        .bagcart{
+        flex-direction: column;
+        width: 95%;
+    
+    }
+    .products{
+        
+        width: 100%;
+       
+    }
+    .summary{
+        width: 100%;
+    }
+    .item{
+        width: 99%;
+        height: 300px;
+        flex-direction: column;
+        
+
+    }
+    .div-cont{
+        width: 100%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+       
+    }
+    .quntity{
+        width: 25%;
+    }
+  
+
+    }
+</style>
+<script src="./modules/bagCart.js" type="module"></script>
+<body>
+    
+
+    <nav class="nav-bar shadow">
+        <h3>FAKE STORE</h3>
+        <div>
+            <ul>
+                <li><a href="./products.html">HOME</a></li>
+                <li><a href="./bagCart.html">BAGCART</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="bagcart">
+        <div class="products" id="productsid">
+            <div class="head-div" id="head-div">
+                <h2>Shopping Cart</h2>
+            </div>
+          <hr width="92%">
+        </div>
+        <div class="summary" id="summaryid">
+         <h2>Order Summary</h2>  
+         <hr width="90%"> 
+         <div class="numitems" id="numitemsid">
+           
+         </div>
+         <div class="shipping" id="shippingid">
+            <p>SHIPPING</p>
+            <select class="selectcls" id="selectid">
+                <option value="5.00">Standerd-Delivery-$5.00</option>
+                <option value="10.00">Fast-Delivery-$10.00</option>
+            </select>
+
+            <p>GIVE CODE</p>
+            <input placeholder="Enter Your Code">
+         </div>
+          <hr width="90%"> 
+          <div class="totalprice" id="totalpriceid">
+          <h4>TOTAL PRICE</h4>
+          <h4 id="totalpricewithship">$123</h4>
+          </div>
+           <hr width="90%"> 
+           <button class="btn-check" id="btn-checkid">CHECKOUT</button>
+       
+
+    </div>
+        
+    </div>
+    <div id="overlay" class="overlay"></div>
+    <div id="popcontantid" class="popcontant">
+        <h2>Thank You</h2>
+        <p>The purchase was completed successfully</p>
+        <button id="closebtn">Close</button>
+    </div>
+  
+
+    
+        
+
+  
+</body>
+</html>
