@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .contant{
+        display: flex;
+        flex-direction: column;
+        margin: 5% 2%;
+        width: 99%;
+    }
+    .div-one{
+        width: 95%;
+        background-color: #1e1e1e;
+        margin: 20px;
+        border-radius: 10px;
+    }
+    .prag-code{
+        color: #13965c;
+        margin: 15px;
+        
+    }
+    .div-header{
+        background-color: #222222;
+        border: 2px solid #222222;
+        box-shadow: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        border-radius: 3px;
+        height: 40px;
+    }
+    .div-header h5{
+        margin-left: 10px;
+    }
+    .btn-copy{
+        background-color: #006fff;
+        color: white;
+        border: #006fff;
+        border-radius: 4px;
+        height: 20px;
+        width: 50px;
+        margin-right: 10px;
+    }
+
+    </style>
+</head>
+<body>
+
+    <div class="contant">
+       <h1>MY CSSLive DOCS</h1>
+       <h3>CSS Snippets</h3>
+
+       <div class="div-one">
+        <div class="div-header">
+            <h5>Center Content (Flex)</h5>
+            <button class="btn-copy">Copy</button>
+        </div>
+            <p class="prag-code">
+                .preview-box {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                }
+            </p>
+       </div>
+
+       <div class="div-one">
+         <div class="div-header">
+            <h5>Button Hover Effect</h5>
+            <button class="btn-copy">Copy</button>
+        </div>
+            <p class="prag-code">
+                 .preview-box button {
+                background: #0d6efd;
+                color: white;
+                border: none;
+                transition: 0.3s;
+                }
+                .preview-box button:hover {
+                background: #064298;
+                }
+            </p>
+       </div>
+
+       <div class="div-one">
+          <div class="div-header">
+            <h5> Card Shadow</h5>
+            <button class="btn-copy">Copy</button>
+          </div>
+            <p class="prag-code">
+                preview-box.card {
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,.2);
+                }
+            </p>
+       </div>
+       
+       <h3>Paste Your CSS Here</h3>
+
+    </div>
+
+
+
+    <script>
+      let prags=document.getElementsByClassName("prag-code");
+      for(i=0;i<prags.length;i++)
+      {
+        let txt=prags[i].innerHTML,_newtxt="";
+
+        for(j=0;j<txt.length;j++)
+        {
+            if(txt[j]==="{"||txt[j]==="}"||txt[j]===";")
+               _newtxt+=txt[j]+`<br/>`;
+            else
+                _newtxt+=txt[j];
+        }
+        prags[i].innerHTML=_newtxt;
+      }
+
+    </script>
+</body>
+</html>

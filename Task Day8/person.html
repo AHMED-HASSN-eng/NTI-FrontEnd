@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        class Person{
+        #name;
+        #age;
+        constructor(_name,_age){
+            this.#name=_name;
+            this.#age=_age;
+        }
+        setname(_name){
+            this.#name=_name;
+        } 
+        getname(){
+            
+          return  this.#name;
+        } 
+        setage(_age){
+            this.#age=_age;
+        } 
+        getage(){
+          return  this.#age;
+        } 
+        introduce(){
+        return `Hiiii my name is ${this.#name}`;
+    }
+}
+class Teacher extends Person{
+     #subject;
+     constructor(_name,_age,_subject){
+        super(_name,_age);
+        this.#subject=_subject;
+        }
+
+    teach() {
+    return `I teach a ${this.#subject}`;
+   }
+   introduce(){
+    return `Hiiii I am a ${super.getname()}`;
+   }
+}
+class Student extends Person{
+     #major;
+     constructor(_name,_age,_major){
+        super(_name,_age);
+        this.#major=_major;
+    }
+    study() {
+    return `I study a ${this.#major}`;
+   }
+   introduce(){
+    return `Hiiii I am a ${super.getname()}`;
+   }
+}
+
+techobj=new Teacher("Ali",28,"Compiler");
+studobj=new Student("Ahmed",25,"ML");
+console.log("************Teacher****************");
+console.log(techobj.teach());
+console.log(techobj.introduce());
+console.log("************Student****************");
+console.log(studobj.study());
+console.log(studobj.introduce());
+
+
+
+class Shape{
+    // constructor(){
+
+    // }
+    calcArea(){
+
+    }
+    
+}
+
+class Rectangel extends Shape{
+    constructor(_height,_width){
+        super();
+        this.height=_height;
+        this.width=_width;
+    }
+    calcArea(){
+        return this.height*this.width;
+    }
+}
+class Circle extends Shape{
+    constructor(_reduies){
+         super();
+        this.reduies=_reduies;
+    }
+    calcArea(){
+        return (this.reduies/2)*(this.reduies/2)*3.14;
+    }
+}
+console.log("**************Shape**************")
+let arrOfShape=[new Rectangel(2,3),new Circle(5),new Rectangel(10,20),new Circle(13)]
+for(i=0;i<arrOfShape.length;i++)
+{
+    console.log(`The Area Of the Shape is  ${arrOfShape[i].calcArea()}`);
+}
+
+
+    </script>
+</body>
+</html>

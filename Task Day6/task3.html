@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script>
+
+    let counter=1;
+    let timeID=setInterval(()=>{
+            document.write(`<div style="border:3px solid red;  width: fit-content; height: 30px; text-align: center; align-content: center;"><span style="border:2px solid red;margin: 5px; padding: 1px;">${counter}</span></div>`)
+            document.title=counter++;
+    },1000);
+
+    
+</script>
+<body>
+    <div style="border:3px solid red;  width: fit-content; height: 30px; text-align: center; align-content: center;"><span style="border:2px solid red;margin: 5px; padding: 1px;"></span></div>
+</body>
+</html>

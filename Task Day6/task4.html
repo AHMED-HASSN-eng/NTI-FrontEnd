@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    let _username=location.href.split("?")[1].split("&")[0].split("=")[1];
+    let _password=location.href.split("?")[1].split("&")[1].split("=")[1];
+    if(_username==="ali"&&_password==="123")
+    open("welcome.html","welcome","width=800xpx,height=600px")
+    else
+         open("error.html","welcome","width=800xpx,height=600px")
+
+
+</script>
+<body>
+    <form action="">
+        UserNmae<br>
+       <input type="text" name="username"><br/>
+       Password<br/>
+       <input type="password" name="Pass">
+       <br/>
+       <input type="submit" >
+    </form>
+</body>
+</html>

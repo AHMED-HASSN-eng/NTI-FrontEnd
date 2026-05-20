@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+ li{
+    @apply hover:text-blue-600 dark:hover:text-cyan-400 relative sm:before:content-[''] 
+    sm:before:absolute sm:before:h-1 before:bg-blue-700 dark:before:bg-cyan:700 sm:before:w-0
+    sm:before:bottom-0 sm:hover:before:w-full sm:before:rounded-xl sm:before:duration-150
+}
+p{
+   @apply dark:text-gray-400;
+}

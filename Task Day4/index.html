@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var lower=new String("abcdefghijklmnopqrstuvwxyz");
+        var upper=lower.toUpperCase();
+        var volwe="AEIOUaeiou"
+        var str=prompt("Enter Your String To Captalize");
+
+        if(str==="")
+        alert("Please enter valid String");
+        
+        var sp_str=new String (str.split(""));
+        var valid_str="";
+        var cop_str="";
+        var f=1;
+        for(i=0;i<sp_str.length;i++){
+            if((sp_str[i][0]>='a'&&sp_str[i][0]<='z')|| 
+            (sp_str[i][0]>='A'&&sp_str[i][0]<='Z'))
+            {
+               
+                cop_str+=sp_str[i];
+                
+            }
+            else if(sp_str[i][0]>='1'&&sp_str[i][0]<='9')
+             f=0;
+            if(f&&cop_str!=" "&&sp_str[i][0]==" ")
+            {
+              valid_str+=cop_str;
+              if(i!=sp_str.length-1)
+                 valid_str+=" ";
+              cop_str="";
+            }
+            else if(f===0&&sp_str[i][0]==" ")
+            {
+              cop_str="";
+              f=1;
+            }
+
+           
+
+            
+        }
+         if(f&&cop_str!=" ")
+            {
+              valid_str+=cop_str;
+             
+              
+            }
+        if(valid_str=="")
+        alert("Please enter valid String");
+         
+        var cap_str="";
+         cap_str+=valid_str[0].toUpperCase();
+        for(var i=1;i<valid_str.length;i++)
+        {
+            if((valid_str[i]>='a'&&valid_str[i]<='z')||
+             (valid_str[i]>='A'&&valid_str[i]<='Z')|| 
+             valid_str[i]===" ")
+            {
+            if(valid_str[i-1]===" ")
+            {
+               cap_str+=valid_str[i].toUpperCase();
+              
+             }
+            else
+            cap_str+=valid_str[i];
+            }
+        }
+        alert(cap_str);
+
+        var str=prompt("Enter Your String To Long String");
+       // valid(str);
+        var sp_str=str.split(" ");
+         mx=0;
+        var long_str="";
+            
+         for( i=0;i<sp_str.length;i++)
+        {
+           
+            if( sp_str[i].length > mx )
+            {
+                mx = sp_str.length;
+                long_str = sp_str[i];
+            }
+        }
+        alert(long_str);
+
+        var str=prompt("Enter Your String TO Remove Dublicate");
+       //valid(str);
+        var tar_str="";
+         for( i=0;i<str.length;i++)
+        {
+            if(tar_str.lastIndexOf(str[i])===-1)
+              tar_str+=str[i];
+        }
+        alert(tar_str);
+
+         var str=prompt("Enter Your String To count Volwe");
+        var cnt=0;
+         for( i=0;i<str.length;i++)
+        {
+            if(volwe.lastIndexOf(str[i])!=-1)
+              cnt++;
+        }
+        alert(cnt);
+
+        var str=prompt("Enter Your String To Remove Spical Char");
+       //valid();
+        var tar_str="";
+         for( i=0;i<str.length;i++)
+        {
+            if((str[i]>='a'&&str[i]<='z')|| (str[i]>='A'&&str[i]<='Z')|| (str[i]>='1'&&str[i]<='9'))
+              tar_str+=str[i];
+        }
+        alert(tar_str);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

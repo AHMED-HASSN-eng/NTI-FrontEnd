@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style id="stylesheet">
+    body{
+        background-color: #f4f4f4;
+    }
+    .contant{
+        display: flex;
+        flex-direction: column;
+        margin: 5% 2%;
+        width: 99%;
+        background-color: #f4f4f4;
+    }
+    .div-one{
+        width: 95%;
+        background-color: #1e1e1e;
+        margin: 20px;
+        border-radius: 10px;
+    }
+    .prag-code{
+        color: #13965c;
+        margin: 15px;
+        
+    }
+    .div-header{
+        background-color: #222222;
+        border: 2px solid #222222;
+        box-shadow: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        border-radius: 3px;
+        height: 40px;
+    }
+    .div-header h5{
+        margin-left: 10px;
+    }
+    .btn-copy{
+        background-color: #006fff;
+        color: white;
+        border: #006fff;
+        border-radius: 4px;
+        height: 20px;
+        
+        margin-right: 10px;
+    }
+    .div-result{
+         border: 1px dotted #222222;
+         background-color: white;
+    }
+    .prev-card{
+        background-color: #f4f4f4;
+          margin: 15px;
+          height:100px;
+          padding: 10px;
+    }
+    .btn-hover{
+        height: 30px;
+        width: 90px;
+    }
+
+    </style>
+</head>
+<body>
+
+    <div class="contant">
+       <h1>MY CSSLive DOCS</h1>
+       <h3>CSS Snippets</h3>
+
+       <div class="div-one">
+        <div class="div-header">
+            <h5>Center Content (Flex)</h5>
+            <button class="btn-copy" id="copy-p1">Copy</button>
+        </div>
+            <p class="prag-code" id="code-p1">
+                .preview-box {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                }
+            </p>
+       </div>
+
+       <div class="div-one">
+         <div class="div-header">
+            <h5>Button Hover Effect</h5>
+            <button class="btn-copy" id="copy-p2">Copy</button>
+        </div>
+            <p class="prag-code" id="code-p2">
+                 .preview-box button {
+                background: #0d6efd;
+                color: white;
+                border: none;
+                transition: 0.3s;
+                }
+                .preview-box button:hover {
+                background: #064298;
+                }
+            </p>
+       </div>
+
+       <div class="div-one">
+          <div class="div-header">
+            <h5> Card Shadow</h5>
+            <button class="btn-copy" id="copy-p3">Copy</button>
+          </div>
+            <p class="prag-code" id="code-p3">
+                .preview-box .card {
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,.2);
+                }
+            </p>
+       </div>
+       
+       <h3>Paste Your CSS Here</h3>
+       <textarea placeholder="Paste CSS here" rows="8" cols="3" id="txtarea"></textarea>
+       <h3>Live Result</h3>
+       <div class="div-result preview-box">
+           <div class="prev-card card" id="prev-card">
+                  <p>This Preview Card</p>
+                  <button class="btn-hover">Hover Me</button>
+           </div>
+       </div>
+
+    </div>
+
+
+
+    <script>
+      let prags=document.getElementsByClassName("prag-code");
+      for(i=0;i<prags.length;i++)
+      {
+        let txt=prags[i].innerHTML,_newtxt="";
+
+        for(j=0;j<txt.length;j++)
+        {
+            if(txt[j]==="{"||txt[j]==="}"||txt[j]===";")
+               _newtxt+=txt[j]+`<br/>`;
+            else
+                _newtxt+=txt[j];
+        }
+        prags[i].innerHTML=_newtxt;
+      }
+         codetxt="";
+       document.getElementById("copy-p1").addEventListener("click",function(){
+                codetxt=document.getElementById("code-p1").innerText.trim();  
+                navigator.clipboard.writeText(codetxt);
+               this.innerHTML="Copied ✅"; 
+                setTimeout(()=>{
+                    this.innerHTML="Copy";
+                },1000)
+
+       });//Copy-P1
+
+       document.getElementById("copy-p2").addEventListener("click",function(){
+                codetxt=document.getElementById("code-p2").innerText.trim();  
+                navigator.clipboard.writeText(codetxt);
+               this.innerHTML="Copied ✅"; 
+                setTimeout(()=>{
+                    this.innerHTML="Copy";
+                },1000)
+
+       });//Copy-P2
+
+       document.getElementById("copy-p3").addEventListener("click",function(){
+                codetxt=document.getElementById("code-p3").innerText.trim();  
+                navigator.clipboard.writeText(codetxt);
+               this.innerHTML="Copied ✅"; 
+                setTimeout(()=>{
+                    this.innerHTML="Copy";
+                },1000)
+
+       });//Copy-P3
+
+      
+      document.getElementById("txtarea").addEventListener("paste",function(e){
+               let  pasteddata=e.clipboardData.getData("text").trim(),cls;
+                cls=pasteddata.replaceAll("}","{").split("{");
+                let _styletag=document.getElementById("newstyleid");
+                if(!_styletag)
+                {
+                _styletag =document.createElement("style");
+                _styletag.id="newstyleid";
+                document.head.appendChild(_styletag);
+                }
+                 _styletag.textContent=pasteddata;
+                 console.log(_styletag);
+            //    for(i=0;i<cls.length-1;i+=2) 
+            //    {
+            //     let selc=cls[i].trim();
+            //     let sty=cls[i+1].trim();
+            //      console.log(selc);
+            //      console.log(sty);
+            //      let elments=  document.querySelectorAll(selc);
+            //      console.log(elments);
+            //      elments.forEach((el)=>{
+            //         console.log(el);
+            //         console.log(sty);
+            //         el.style.cssText=sty;
+            //      });
+
+              // }
+               
+      });
+
+    </script>
+</body>
+</html>

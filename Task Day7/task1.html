@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(217, 227, 235);
+        }
+     .content{
+        
+        background-color: white;
+        border-radius: 3px;
+        border: 4px solid white;
+        display: flex ;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+        height: auto;
+        margin: 5% 20%;
+        
+     }
+     .form-content{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 95%;
+        margin: 20px 5px;
+     }
+     .inp-frm{
+        border-radius: 2px;
+        border: 1px solid wheat;
+        width: 25%;
+        height: 30px;
+     }
+     .btn-add{
+        background-color: #028001;
+        color: white;
+        width: 10%;
+        height: 35px;
+        border: 1px solid #028001;
+     }
+     .btnedit{
+        background-color: blue;
+        color: white;
+        width: 60px;
+        height: 35px;
+        border: 1px solid blue;
+     }
+     .btndelete{
+        background-color: red;
+        border: 1px solid red;
+        color: white;
+        width: 60px;
+        height: 35px;
+     }
+     .ta-content{
+        width: 95%;
+     }
+     .tbl-user{
+        width: 99%;
+        color: black;
+     }
+     #tr-head{
+        height: 40px;
+        width: 100%;
+        background-color: #333333;
+        color: white;
+        text-align: center;
+        border-radius: 3px;
+     }
+     .tr-data{
+         height: 40px;
+        width: 100%;
+        background-color: white;
+        color: black;
+        text-align: center;
+        border-radius: 3px;
+     }
+     .btn-upd{
+        background-color: #ffa500;
+        color: white;
+        width: 10%;
+        height: 35px;
+        border:1px solid #ffa500;
+        display: none;
+     }
+    </style>
+</head>
+<body>
+    <div class="content">
+    <h1>
+     User Control
+    </h1>
+    <div class="form-content">
+      <form  class="form-content">
+      <input type="text" name="name" class="inp-frm" id="nameval" placeholder="Enter Name">
+     <input type="number" min="0" name="age" class="inp-frm" id="ageval" placeholder="Enter Age">
+     <input type="text" name="city" class="inp-frm" id="cityval" placeholder="Enter City">
+     <input type="button" name="btn-add" class="btn-add" value="Add" id ="btnadd">
+     <input type="button" name="btn-upd" class="btn-upd" value="updated" id ="btnupd">
+
+      </form>
+    </div>
+    <div class="ta-content">
+        <table class="tbl-user" id="tbluser">
+           <thead>
+            <tr id="tr-head">
+               <th>ID</th>
+               <th>Name</th>
+               <th>Age</th>
+               <th>City</th>
+               <th>Edit</th>
+               <th>Delete</th>
+            </tr>
+            </thead>
+           
+        </table>
+    </div>
+    </div>
+    <script>
+         let tabl= document.getElementById("tbluser");
+        let btnadd=document.getElementById("btnadd");
+        let btnupd=document.getElementById("btnupd");
+         let cnt=1,_row="";
+
+
+        
+
+     
+         btnadd.addEventListener("click",function(){
+         let _name= document.getElementById("nameval").value;
+         let _age= document.getElementById("ageval").value;
+         let _city= document.getElementById("cityval").value;
+          if(_name===""||_age===""||_city==="")
+             return;
+             let _newrow=document.createElement("tbody");
+             _newrow.id=`tbdata${cnt}`;
+               _newrow.innerHTML=
+         `
+           <tr id="tr-data${cnt++}" class="tr-data">
+               <td>${cnt-1}</td>
+               <td>${_name}</td>
+               <td>${ _age}</td>
+               <td>${_city}</td>
+               <td><button class="btnedit" id="edit${cnt-1}" onclick="edit(${cnt-1})">Edit</button></td>
+               <td><button class="btndelete" id="delete${cnt-1}" onclick="delet(${cnt-1})">Delete</button></td>
+            </tr>
+         `;
+           tabl.appendChild(_newrow);
+           document.getElementById("nameval").value = "";
+           document.getElementById("ageval").value = "";
+           document.getElementById("cityval").value = "";
+         });
+        
+         function edit(id)
+         {
+            console.log(id);
+                _row= document.getElementById(`tbdata${id}`);
+               
+               document.getElementById("btnupd").style.display="block";
+               document.getElementById("btnadd").style.display="none";
+               document.getElementById("nameval").value=_row.children[0].children[1].textContent;
+               document.getElementById("ageval").value=_row.children[0].children[2].textContent;
+               document.getElementById("cityval").value=_row.children[0].children[3].textContent;    
+               
+         }
+         btnupd.addEventListener("click",function(e){
+            
+            
+                    console.log(_row);
+                    console.log(document.getElementById("nameval").value);
+                    _row.children[0].children[1].textContent=document.getElementById("nameval").value;
+                    _row.children[0].children[2].textContent=document.getElementById("ageval").value;
+                    _row.children[0].children[3].textContent=document.getElementById("cityval").value;
+                    document.getElementById("btnupd").style.display="none";
+                    document.getElementById("btnadd").style.display="block";
+                     document.getElementById("nameval").value = "";
+                     document.getElementById("ageval").value = "";
+                     document.getElementById("cityval").value = "";
+                  
+               });
+
+         function delet(id){
+            let bdata=document.getElementById(`tbdata${id}`);
+             tabl.removeChild(bdata);
+         }
+        
+         
+         
+    </script>
+</body>
+</html>

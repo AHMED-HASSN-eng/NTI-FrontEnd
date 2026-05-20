@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: #f4f4f4;
+    }
+    .container{
+        margin: 10%;
+    }
+    .sec-div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+    }
+    .center-div{
+       display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+
+    }
+    .rl-div{
+        background-color: white;
+        width: 240px;
+        height: 290px;
+        border: 1px solid white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        align-items: center;
+        text-align: center;
+        
+    }
+    .rl-div h2{
+        align-items: center;
+        font-size: 25px;
+    }
+    .divs{
+        background-color:#f4f4f4 ;
+        width: 90%;
+        margin: 10px;
+        height:30px ;
+        align-content: center;
+        padding-left: 6px;
+        border-radius: 3px;
+    }
+    .rl-div div:hover{
+        background-color:#026dff ;
+        
+    }
+    .btn{
+        background-color: #0c7e56;
+        border: #0c7e56;
+        color: white;
+        margin: 10px;
+        height: 40px;
+        width: 80px;
+        
+    }
+</style>
+<body>
+    <div class="container">
+     <h1>Move Elements Between Boxes</h1>
+     <div class="sec-div">
+        <div class="left-div rl-div" id="left">
+            <h2>Available</h2>
+            <div class="divs" id="html-div">  HTML </div>
+            <div class="divs" id="css-div"> CSS </div>
+            <div class="divs" id="js-div">  JavaScript </div>
+            <div class="divs" id="react-div">  React </div>
+        </div>
+
+         <div class="center-div" id="center">
+            <button class="btn" id="btn-move">➡ Move</button>
+            <button class="btn" id="btn-back">⬅ Back</button>          
+        </div>
+
+        <div class="right-div rl-div" id="right">
+            <h2>Selected</h2>
+           
+        </div>
+     </div>
+    </div>
+    <script>
+        document.getElementById("html-div")
+        .addEventListener("click",function(){
+            console.log("hfghvvh");
+                if(getComputedStyle(this).backgroundColor==="rgb(2, 109, 255)")
+                this.style.background="#f4f4f4";
+            else
+             this.style.background="#026dff";
+        });
+        document.getElementById("css-div")
+        .addEventListener("click",function(){
+             if(getComputedStyle(this).backgroundColor==="rgb(2, 109, 255)")
+                this.style.background="#f4f4f4";
+            else
+             this.style.background="#026dff";
+           
+        });
+        document.getElementById("js-div")
+        .addEventListener("click",function(){
+                 if(getComputedStyle(this).backgroundColor==="rgb(2, 109, 255)")
+                this.style.background="#f4f4f4";
+            else
+             this.style.background="#026dff";
+        });
+        document.getElementById("react-div")
+        .addEventListener("click",function(){
+                if(getComputedStyle(this).backgroundColor==="rgb(2, 109, 255)")
+                this.style.background="#f4f4f4";
+                else
+                this.style.background="#026dff";
+        });
+        
+        document.getElementById("btn-move")
+        .addEventListener("click",function(){
+              let lparent= document.getElementById("left");
+              let rparent= document.getElementById("right");
+              let elments=lparent.children;
+              
+              for(i=0;i<elments.length;i++)
+              {
+               // let temp=elments[i].cloneNode(true);
+                if(getComputedStyle(elments[i]).backgroundColor==="rgb(2, 109, 255)")
+                {
+                        elments[i].style.background="#f4f4f4";
+                        //console.log(temp);
+                        rparent.appendChild(elments[i]);
+                        //lparent.removeChild(elments[i]);
+                        i--;
+                }
+                     
+              }
+        });
+        document.getElementById("btn-back")
+        .addEventListener("click",function(){
+              let lparent= document.getElementById("left");
+              let rparent= document.getElementById("right");
+              let elments=rparent.children;
+              
+              for(i=0;i<elments.length;i++)
+              {
+                //let temp=elments[i].cloneNode(true);
+                if(getComputedStyle(elments[i]).backgroundColor==="rgb(2, 109, 255)")
+                {        
+                        elments[i].style.background="#f4f4f4";
+                         lparent.appendChild(elments[i]);
+                        //rparent.removeChild(elments[i]);
+                        i--;
+                }
+                     
+              }
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+body{
+    margin: 0px;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    background-color: #0f1629;
+}
+.nav-bar{
+    width: 99%;
+    height: 60px;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #0f1629;
+    z-index: 1000;
+}
+.nav-ul{
+    list-style: none;
+    display: inline-flex;
+    width: 50%;
+    height: 100%;
+   
+}
+.nav-ul-item a{
+     padding: 0px 20px;
+    text-decoration: none;
+    color: #fff;
+}
+.nav-ul-item a:hover{
+   color: #38bef8;
+}
+.por-sig{
+    width: 50%;
+    height: 100%;
+}
+
+.por-sig h3{
+    color: #fff;
+    font-size: 20px;
+}
+
+.home-sec{
+    
+    
+    width: 99%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    color: #fff;
+    position: relative;
+    top: 60px;
+    
+}
+.title{
+    margin-top: 10%;
+    
+    width: 50%;
+}
+.div-per-img{
+    margin-top: 10%;
+    border-radius: 50% 50%;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #38bef8;
+}
+
+.div-per-img img{
+    
+    border-radius: 50% 50%;
+    width: 200px;
+    height: 200px;
+}
+.about-sec{
+    width: 99%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-top: 10%;
+}
+.about-sec p{
+    padding: 0% 15% ;
+    line-height: 200%;
+}
+.skills-sec{
+    width: 99%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+        margin-top: 5%;
+
+}
+.skills {
+ width: 95%;
+display: grid;
+grid-template-columns: repeat(auto-fit,minmax(100px,1fr)) ;
+gap: 20px;
+align-items: center;
+justify-content: space-around;
+padding: 2%;
+height: 100%;
+}
+.skills p{
+    border: 2px solid #1d293b;
+    background-color: #1d293b;
+    box-shadow: 1px;
+    text-align: center;
+    border-radius: 8px;
+    height: 140%;
+    margin: 0px 6%;
+    width: 90%;
+    align-content: center;
+}
+.projects-sec{
+    width: 99%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-top: 5%;
+}
+.projects{
+
+width: 95%;
+display: grid;
+grid-template-columns: repeat(auto-fit,minmax(200px,1fr)) ;
+gap: 20px;
+align-items: center;
+padding: 2%;
+}
+.projects p{
+    border: 2px solid #1d293b;
+    background-color: #1d293b;
+    box-shadow: 1px;
+    text-align: center;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    height: 170%;
+    margin: 0px;
+    width: 90%;
+    z-index: 100;
+    align-content: center;
+}
+.projects img{
+    
+    z-index: 22;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: 100%;
+    margin: 0px;
+    width: 90%;
+    padding: 0px;
+    
+}
+.contact-sec{
+    width: 99%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-top: 5%;
+}
+.contact-sec form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+
+
+}
+.contact-sec input{
+    width: 60%;
+    height: 40px;
+    border-radius: 8px;
+    margin: 5px;
+   padding-left: 15px;
+}
+.contact-sec textarea{
+    width: 60%;
+    height: 100px;
+    border-radius: 8px;
+    margin: 5px;
+   padding-left: 15px;
+}
+.contact-sec button{
+    width: 62%;
+    height: 40px;
+    border-radius: 8px;
+    margin: 5px;
+   padding-left: 15px;
+   background-color: #38bef8;
+   border: 1px solid #38bef8;
+
+}
+.footer-sec{
+    width: 99%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-top: 5%;
+}
+@media  (max-width:700px) {
+    .nav-bar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+
+    }
+    .nav-ul{
+            margin: 0px;
+          width: 99%;
+    }
+    .nav-ul-item a{
+        padding: 0px 10px;
+    }
+    .home-sec{
+         display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    .home-sec .title{
+        width: 99%;
+        text-align: center;
+        
+    }
+    .about-sec{
+        margin-top: 20%;
+    }
+    .contact-sec form{
+        width: 99%;
+    }
+    .contact-sec input textarea button{
+        width: 80%;
+    }
+   
+    
+
+}
