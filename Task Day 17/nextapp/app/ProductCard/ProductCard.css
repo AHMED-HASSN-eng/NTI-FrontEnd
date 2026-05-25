@@ -1,0 +1,18 @@
+.carditem{
+    width: 300px;
+    box-shadow: 0px 4px 8px rgb(0,0,0,0.2);
+    border-radius: 8px;
+}
+.cardimg{
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+}
+.cardimg img{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+cardcontent{
+    align-items: center;
+}
